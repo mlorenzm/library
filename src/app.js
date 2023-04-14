@@ -16,6 +16,8 @@ function addToLibrary(bookObject){
 };
 
 function displayLibrary(library){
+    const clickmessage = document.getElementById('click-to-add');
+    clickmessage.classList.add('hidden');
     library.forEach(book => {
         const main = document.getElementById('main');
         let card = document.createElement('div');
