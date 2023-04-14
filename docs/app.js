@@ -34,7 +34,7 @@ const createCards = (book) => {
     author.innerText = book.author;
     author.classList.add('text-slate-500', 'text-lg', 'italic');
     let pages = document.createElement('div');
-    pages.innerText = book.pages;
+    pages.innerText = `${book.pages} pages`;
     let read = document.createElement('button');
     read.classList.add('font-black', 'p-2', 'rounded-lg', 'text-slate-50', 'hover:scale-101', 'cursor-pointer', 'shadow-lg');
     read.innerText = 'ok?'
