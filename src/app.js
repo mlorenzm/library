@@ -12,7 +12,8 @@ let potter = new Book('Potter', 'mary', '300', false);
 let habits = new Book('atomic Habits', 'mary', '300', true);
 
 
-let myLibrary = [hobbit, potter, potter];
+// let myLibrary = [hobbit, potter, potter, habits, habits, habits, habits, habits];
+let myLibrary = [];
 
 
 function addToLibrary(bookObject){
@@ -21,11 +22,9 @@ function addToLibrary(bookObject){
 
 function displayLibrary(library){
     if(library.length != 0){
-        // deleteElementPrompt();
     }
-    //  main = document.getElementById('main');
      const main = document.getElementById('main');
-     main.classList.add('flex-wrap', 'gap-4');
+     main.classList.add('gap-4');
      while (main.firstChild) {
          main.firstChild.remove();
        }
@@ -36,7 +35,7 @@ function displayLibrary(library){
 };
 const createCards = (book) => {
     let card = document.createElement('div');
-    card.classList.add('rounded', 'shadow-lg', 'p-3', 'border-l-8', 'border-l-slate-500', 'flex', 'flex-col', 'gap-1');
+    card.classList.add('rounded', 'shadow-lg', 'p-3', 'border-l-8', 'border-l-slate-500', 'flex', 'flex-col', 'gap-1', 'h-10');
     let title = document.createElement('div');
     title.innerText = book.title;
     title.classList.add('text-3xl', 'font-black');
@@ -59,11 +58,6 @@ const createCards = (book) => {
     console.log(card)
     main.append(card);
 }
-
-// const deleteElementPrompt = () => {
-//     const clickmessage = document.getElementById('click-to-add');
-//     clickmessage.classList.add('hidden');
-// };
 
 const toggleForm = () => {
     const bookForm = document.getElementById('form-container');
