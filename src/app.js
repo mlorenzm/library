@@ -7,13 +7,13 @@ function Book(title, author, pages, read) {
     this.read = read;
 };
 
-let hobbit = new Book('Hobbit', 'tolkien', '295', false);
-let potter = new Book('Potter', 'mary', '300', false);
-let habits = new Book('atomic Habits', 'mary', '300', true);
+let hobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', false);
+let potter = new Book('Harry Potter and The Philosopher Stone', 'mary', '300', false);
+let habits = new Book('Atomic Habits', 'James Clear', '300', true);
+let asdf = new Book('fref', 'James Cerfe', '300', true);
 
-
-// let myLibrary = [hobbit, potter, potter, habits, habits, habits, habits, habits];
-let myLibrary = [];
+let myLibrary = [hobbit, potter, habits, asdf];
+// let myLibrary = [];
 
 
 function addToLibrary(bookObject){
@@ -28,7 +28,6 @@ function displayLibrary(library){
      while (main.firstChild) {
          main.firstChild.remove();
        }
-    
     library.forEach(book => {
         createCards(book);
     });
@@ -45,7 +44,10 @@ const createCards = (book) => {
     let pages = document.createElement('div');
     pages.innerText = `${book.pages} pages`;
     let read = document.createElement('button');
-    read.classList.add('font-black', 'p-2', 'rounded-lg', 'text-slate-50', 'hover:scale-101', 'cursor-pointer', 'shadow-lg');
+    read.classList.add('font-black', 'p-2', 'rounded-lg', 'text-slate-50', 'cursor-pointer', 'shadow-lg');
+    let del = document.createElement('button');
+    del.classList.add('font-white', 'p-2', 'rounded-lg', 'bg-slate-700', 'text-slate-50', 'cursor-pointer', 'shadow-lg');
+    del.innerText = 'Remove from library'
     if(book.read){
         read.innerText = 'Mark as unread';
         read.classList.add('bg-red-500');
@@ -53,12 +55,18 @@ const createCards = (book) => {
         read.innerText = 'Mark as read';
         read.classList.add('bg-green-500');
     }
-    card.id = 'card';
-    card.append(title, author, pages, read);
-    console.log(card)
+    card.dataset.read = myLibrary.indexOf(book);
+    del.addEventListener('click', ()=>{
+        removeFromLibrary(myLibrary, card.dataset.read)
+    })
+    card.append(title, author, pages, read, del);
     main.append(card);
 }
-
+const removeFromLibrary = (library, index) =>{
+    console.log(library[index])
+    delete library[index];
+    displayLibrary(myLibrary);
+}
 const toggleForm = () => {
     const bookForm = document.getElementById('form-container');
     bookForm.reset()
@@ -84,7 +92,6 @@ const addBook = () => {
         } else {readValue = false}
         let individualBook = new Book(bookTitle, bookAuthor, bookPages, readValue);
         myLibrary.push(individualBook);
-        console.log(myLibrary.length)
         displayLibrary(myLibrary);
         toggleForm()
     }
