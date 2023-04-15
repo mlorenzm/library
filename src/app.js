@@ -53,12 +53,24 @@ const deleteElementPrompt = () => {
     const clickmessage = document.getElementById('click-to-add');
     clickmessage.classList.add('hidden');
 };
+const toggleForm = () => {
+    const bookForm = document.getElementById('form-container');
+    if(bookForm.classList.contains('hidden')){
+        bookForm.classList.remove('hidden');    
+    } else{
+        bookForm.classList.add('hidden');
+    }
+};
+
 const addBook = () => {
     const addButton = document.getElementById('btn');
-    const bookForm;
+    
     addButton.addEventListener('click', () =>{
+        toggleForm();
         console.log('yes');
     })
 }
+
+
 addBook();
 displayLibrary(myLibrary);
