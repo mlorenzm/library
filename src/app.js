@@ -7,13 +7,8 @@ function Book(title, author, pages, read) {
     this.read = read;
 };
 
-let hobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', false);
-let potter = new Book('Harry Potter and The Philosopher Stone', 'mary', '300', false);
-let habits = new Book('Atomic Habits', 'James Clear', '300', true);
-let asdf = new Book('fref', 'James Cerfe', '300', true);
 
-let myLibrary = [hobbit, potter, habits, asdf];
-// let myLibrary = [];
+ let myLibrary = [];
 
 
 function addToLibrary(bookObject){
@@ -56,8 +51,21 @@ const createCards = (book) => {
         read.classList.add('bg-green-500');
     }
     card.dataset.read = myLibrary.indexOf(book);
-    del.addEventListener('click', ()=>{
+    del.addEventListener('click', () => {
         removeFromLibrary(myLibrary, card.dataset.read)
+    })
+    read.addEventListener('click', () => {
+        if(book.read == false){
+            read.innerText = 'Mark as unread';
+            read.classList.remove('bg-red-500');
+            read.classList.add('bg-red-500');
+            book.read = true;
+        } else {
+            read.innerText = 'Mark as read';
+            read.classList.remove('bg-red-500');
+            read.classList.add('bg-green-500');
+            book.read = false
+        }
     })
     card.append(title, author, pages, read, del);
     main.append(card);
