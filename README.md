@@ -6,6 +6,7 @@ Digital library project, Library of Alexandria
 
 Part of the Odin Project [Javascript Course](https://www.theodinproject.com/lessons/node-path-javascript-library)
 
+Logo edited from [SVGRepo](https://www.svgrepo.com/)
 
 ## Features
 - Live preview [HERE](https://mlorenzm.github.io/library/)
