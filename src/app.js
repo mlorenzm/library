@@ -10,7 +10,7 @@ function Book(title, author, pages, read) {
 let hobbit = new Book('Hobbit', 'tolkien', '295', false);
 let potter = new Book('Potter', 'mary', '300', false);
 let habits = new Book('atomic Habits', 'mary', '300', true);
-let myLibrary = [hobbit, potter, habits];
+let myLibrary = [hobbit, potter, habits, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter, potter];
 
 function addToLibrary(bookObject){
     myLibrary.push(bookObject);
@@ -24,7 +24,7 @@ function displayLibrary(library){
 }
 const createCards = (book) => {
     const main = document.getElementById('main');
-    main.classList.add('flex-wrap', 'h-10', 'gap-4');
+    main.classList.add('flex-wrap', 'gap-4');
     let card = document.createElement('div');
     card.classList.add('rounded', 'shadow-lg', 'p-3', 'border-l-8', 'border-l-slate-500', 'flex', 'flex-col', 'gap-1');
     let title = document.createElement('div');
