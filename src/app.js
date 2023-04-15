@@ -61,6 +61,7 @@ const createCards = (book) => {
 
 const toggleForm = () => {
     const bookForm = document.getElementById('form-container');
+    bookForm.reset()
     if(bookForm.classList.contains('hidden')){
         bookForm.classList.remove('hidden');     
     } else{
