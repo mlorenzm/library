@@ -10,7 +10,7 @@ function Book(title, author, pages, read) {
 let hobbit = new Book('Hobbit', 'tolkien', '295', false);
 let potter = new Book('Potter', 'mary', '300', false);
 let habits = new Book('atomic Habits', 'mary', '300', true);
-let myLibrary = [hobbit, potter, habits];
+let myLibrary = [];
 
 function addToLibrary(bookObject){
     myLibrary.push(bookObject);
@@ -40,12 +40,11 @@ const createCards = (book) => {
     read.innerText = 'ok?'
     if(book.read){
         read.innerText = 'Mark as unread';
-        read.classList.add('bg-red-500');
+        read.classList.add('bg-red-400');
     } else{
         read.innerText = 'Mark as read';
-        read.classList.add('bg-green-500');
+        read.classList.add('bg-green-400');
     }
-    
     card.append(title, author, pages, read);
     main.append(card);
 }
@@ -54,5 +53,12 @@ const deleteElementPrompt = () => {
     const clickmessage = document.getElementById('click-to-add');
     clickmessage.classList.add('hidden');
 };
-
+const addBook = () => {
+    const addButton = document.getElementById('btn');
+    const bookForm;
+    addButton.addEventListener('click', () =>{
+        console.log('yes');
+    })
+}
+addBook();
 displayLibrary(myLibrary);
