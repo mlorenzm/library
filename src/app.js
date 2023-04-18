@@ -93,8 +93,7 @@ const createCards = (book) => {
   main.append(card);
 };
 const removeFromLibrary = (library, index) => {
-  console.log(library[index]);
-  delete library[index];
+  myLibrary.splice(index, 1);
   displayLibrary(myLibrary);
 };
 const toggleForm = () => {
